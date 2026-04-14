@@ -22,13 +22,13 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-4">
-            <a href={personalDetails.github} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-all focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-slate-950">
+            <a href={personalDetails.github} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-slate-950">
               <FaGithub size={20} />
             </a>
-            <a href={personalDetails.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-all focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-slate-950">
+            <a href={personalDetails.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-slate-950">
               <FaLinkedin size={20} />
             </a>
-            <a href={`mailto:${personalDetails.email}`} className="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-all focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-slate-950">
+            <a href={`mailto:${personalDetails.email}`} className="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-slate-950">
               <Mail size={20} />
             </a>
           </div>
@@ -43,7 +43,7 @@ const Footer = () => {
 
         <div className="text-center border-t border-slate-800/80 pt-8 mt-4">
           <p className="text-slate-500 text-sm">
-            &copy; {new Date().getFullYear()} Punam Patil. Built with React & Tailwind CSS. All rights reserved.
+            &copy; 2026 Punam Patil | Built with ❤️ using React
           </p>
         </div>
       </div>

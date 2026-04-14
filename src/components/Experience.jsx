@@ -18,8 +18,16 @@ const Experience = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-px bg-slate-700"></div>
+          {/* Glowing Vertical Line */}
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-slate-800 rounded-full">
+            <motion.div 
+              className="absolute top-0 w-full bg-gradient-to-b from-glow via-accent to-glow rounded-full"
+              initial={{ height: 0 }}
+              whileInView={{ height: '100%' }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            />
+          </div>
 
           {experienceData.map((exp, index) => {
             const isEven = index % 2 === 0;
@@ -32,14 +40,16 @@ const Experience = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className={`relative flex flex-col md:flex-row items-start mb-12 ${isEven ? 'md:flex-row-reverse' : ''}`}
               >
-                {/* Timeline Dot */}
-                <div className="absolute left-[-11px] md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-slate-900 border-4 border-glow z-10 box-content mt-1"></div>
+                {/* Timeline Dot with Glow */}
+                <div className="absolute left-[-14px] md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-slate-900 border-4 border-glow z-10 flex items-center justify-center mt-0 shadow-[0_0_15px_rgba(59,130,246,0.6)]">
+                  <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                </div>
 
                 {/* Content Box */}
-                <div className={`w-full md:w-1/2 pl-8 md:pl-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="glass-card p-6 relative group overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                      <exp.icon size={64} className="text-glow" />
+                <div className={`w-full md:w-1/2 pl-10 md:pl-0 ${isEven ? 'md:pr-14' : 'md:pl-14'}`}>
+                  <div className="glass-card p-8 relative group overflow-hidden hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all duration-300">
+                    <div className="absolute -top-10 -right-10 p-4 opacity-5 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 transform rotate-12">
+                      <exp.icon size={120} className="text-glow" />
                     </div>
                     
                     <div className="relative z-10">

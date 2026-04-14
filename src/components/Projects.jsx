@@ -36,13 +36,40 @@ const Projects = () => {
               </div>
 
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-glow transition-colors">{project.title}</h3>
-              <p className="text-slate-400 leading-relaxed mb-8 flex-grow">
+              <p className="text-slate-400 leading-relaxed mb-6">
                 {project.description}
               </p>
 
+              {project.problem && project.solution && (
+                <div className="mb-6 space-y-3 bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
+                  <div>
+                    <span className="text-accent font-semibold text-sm uppercase tracking-wider block mb-1">The Problem</span>
+                    <p className="text-slate-300 text-sm">{project.problem}</p>
+                  </div>
+                  <div>
+                    <span className="text-glow font-semibold text-sm uppercase tracking-wider block mb-1">The Solution</span>
+                    <p className="text-slate-300 text-sm">{project.solution}</p>
+                  </div>
+                </div>
+              )}
+
+              {project.keyFeatures && (
+                <div className="mb-6 flex-grow">
+                  <span className="text-white font-medium text-sm block mb-2">Key Features:</span>
+                  <ul className="space-y-1">
+                    {project.keyFeatures.map((feature, i) => (
+                      <li key={i} className="text-slate-400 text-sm flex items-start">
+                        <span className="text-glow mr-2 mt-0.5">▹</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="flex flex-wrap gap-2 mt-auto mb-6">
                 {project.techStack.map((tech, id) => (
-                  <span key={id} className="text-xs font-mono px-3 py-1 bg-slate-800 text-slate-300 rounded-full border border-slate-700/50">
+                  <span key={id} className="text-xs font-medium px-3 py-1 bg-slate-800 text-glow rounded-full border border-glow/20 shadow-[0_0_10px_rgba(59,130,246,0.1)]">
                     {tech}
                   </span>
                 ))}

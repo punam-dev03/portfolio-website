@@ -13,6 +13,7 @@ import {
 export const personalDetails = {
   name: "Punam Patil",
   tagline: [
+    "Building AI-powered solutions to simplify real-world problems",
     "Full Stack MERN Developer",
     "AI Enthusiast",
     "Cloud & Data Analytics Learner"
@@ -75,6 +76,13 @@ export const projectsData = [
     id: 1,
     title: "AI Contract Intelligence 2.0",
     description: "AI-powered contract analysis platform that detects risky clauses and provides risk and fairness scores using MERN stack and OpenAI API.",
+    problem: "Legal document analysis is manual, error-prone, and time-consuming.",
+    solution: "An intelligent platform that automatically parses contracts to flag risks and highlight fairness.",
+    keyFeatures: [
+      "AI-driven risk assessment",
+      "Real-time clause detection",
+      "Intuitive fairness scoring dashboard"
+    ],
     techStack: ["React", "Node.js", "Express", "MongoDB", "OpenAI API"],
     githubUrl: "https://github.com/punam-dev03/ai-contract-intelligence",
     liveUrl: "https://ai-contract-intelligence.vercel.app",
@@ -83,6 +91,13 @@ export const projectsData = [
     id: 2,
     title: "India General Election Analysis 2024",
     description: "Interactive data visualization dashboard analyzing vote share, seat distribution, and party performance using Power BI.",
+    problem: "Election data is dense and hard to interpret for the general public.",
+    solution: "A dynamic and visual dashboard breaking down key metrics for easy comprehension.",
+    keyFeatures: [
+      "Interactive data visualizations",
+      "Comprehensive vote share breakdowns",
+      "Real-time performance analytics"
+    ],
     techStack: ["Power BI", "Data Analytics"],
     githubUrl: "https://github.com/punam-dev03/India_Election_Analysis_PowerBI",
     liveUrl: "", 

@@ -100,13 +100,16 @@ const Navbar = () => {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.id)}
-                  className={`relative cursor-pointer text-sm font-medium tracking-wide uppercase transition-all duration-300 pb-1 ${
+                  className={`relative cursor-pointer text-sm font-medium tracking-wide uppercase transition-all duration-300 px-4 py-2 rounded-full ${
                     activeSection === link.id
-                      ? 'text-glow after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[2px] after:bg-glow after:shadow-[0_0_10px_rgba(59,130,246,0.8)]'
-                      : 'text-slate-300 hover:text-white hover:text-glow'
+                      ? 'text-white bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)] border border-white/10'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'
                   }`}
                 >
                   {link.name}
+                  {activeSection === link.id && (
+                    <span className="absolute inset-x-0 -bottom-[1px] h-px bg-gradient-to-r from-transparent via-glow to-transparent opacity-80" />
+                  )}
                 </button>
               ))}
             </div>

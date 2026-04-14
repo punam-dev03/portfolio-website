@@ -9,18 +9,19 @@ const SkillCategory = ({ title, skills, delay }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="glass-card p-6"
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className="glass-card p-6 group hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
     >
       <h3 className="text-xl font-bold text-white mb-6 border-l-4 border-glow pl-3">{title}</h3>
       <div className="space-y-6">
         {skills.map((skill, index) => (
-          <div key={index}>
-            <div className="flex justify-between items-center mb-2">
-              <div className="flex items-center gap-2 text-slate-200 font-medium">
-                <skill.icon size={18} className="text-glow" />
+          <div key={index} className="group/item">
+            <div className="flex justify-between items-center mb-2 transition-transform duration-300 group-hover/item:-translate-y-0.5">
+              <div className="flex items-center gap-2 text-slate-200 font-medium group-hover/item:text-white transition-colors">
+                <skill.icon size={18} className="text-glow group-hover/item:scale-110 group-hover/item:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] transition-all duration-300" />
                 {skill.name}
               </div>
-              <span className="text-sm text-slate-400">{skill.level}%</span>
+              <span className="text-sm text-slate-400 group-hover/item:text-glow transition-colors">{skill.level}%</span>
             </div>
             {/* Progress Bar */}
             <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">

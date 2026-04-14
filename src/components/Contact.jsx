@@ -98,49 +98,52 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <form ref={formRef} onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2">Name</label>
-                  <input 
-                    type="text" 
-                    id="name"
-                    name="user_name"
-                    required
-                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-glow/50 focus:border-glow transition-all"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2">Email</label>
-                  <input 
-                    type="email" 
-                    id="email"
-                    name="user_email"
-                    required
-                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-glow/50 focus:border-glow transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
+            <form ref={formRef} onSubmit={handleSubmit} className="glass-card p-8 group relative overflow-hidden">
+              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-glow/50 to-transparent"></div>
               
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-2">Message</label>
-                <textarea 
-                  id="message"
-                  name="message"
-                  required
-                  rows="5"
-                  className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-glow/50 focus:border-glow transition-all resize-none"
-                  placeholder="How can I help you?"
-                ></textarea>
-              </div>
+              <div className="space-y-6 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="relative group/input">
+                    <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2 group-focus-within/input:text-glow transition-colors">Name</label>
+                    <input 
+                      type="text" 
+                      id="name"
+                      name="user_name"
+                      required
+                      className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-glow focus:border-glow transition-all hover:border-slate-600 shadow-inner"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div className="relative group/input">
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2 group-focus-within/input:text-glow transition-colors">Email</label>
+                    <input 
+                      type="email" 
+                      id="email"
+                      name="user_email"
+                      required
+                      className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-glow focus:border-glow transition-all hover:border-slate-600 shadow-inner"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                </div>
+                
+                <div className="relative group/textarea">
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-2 group-focus-within/textarea:text-glow transition-colors">Message</label>
+                  <textarea 
+                    id="message"
+                    name="message"
+                    required
+                    rows="5"
+                    className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-glow focus:border-glow transition-all hover:border-slate-600 shadow-inner resize-none"
+                    placeholder="How can I help you?"
+                  ></textarea>
+                </div>
 
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full btn-primary group"
-              >
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full btn-primary group mt-2"
+                >
                 {isSubmitting ? (
                   <>
                     <Loader2 className="animate-spin mr-2" size={20} />
@@ -154,10 +157,21 @@ const Contact = () => {
                 )}
               </button>
 
+              </div>
+
               {submitStatus === 'success' && (
-                <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 text-center text-sm">
-                  Thank you! Your message has been sent successfully.
-                </div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 text-center text-sm shadow-[0_0_15px_rgba(34,197,94,0.1)] mt-4"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Message sent successfully! I'll get back to you soon.
+                  </span>
+                </motion.div>
               )}
             </form>
           </motion.div>
